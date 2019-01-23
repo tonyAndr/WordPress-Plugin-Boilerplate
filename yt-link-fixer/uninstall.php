@@ -36,8 +36,9 @@ delete_option("yt-link-fixer-settings");
 delete_option("yt-link-fixer-cache");
 
 // Drop db table
-$db = new Yt_Link_Fixer_DB();
-$db->drop_table();
-
-
-
+function drop_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix."yt_broken_links";
+    $wpdb->query("DROP $table_name");
+}
+drop_table();

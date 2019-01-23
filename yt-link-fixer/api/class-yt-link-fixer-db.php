@@ -24,7 +24,7 @@
 
 class Yt_Link_Fixer_DB {
 
-    const LATEST_DB_VERSION = '1.4';
+    const LATEST_DB_VERSION = '1.0';
 
     private $table_name;
 	/**

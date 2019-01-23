@@ -16,7 +16,7 @@
  * Plugin Name:       Youtube Fixer
  * Plugin URI:        http://seocherry.ru/
  * Description:       Find and replace broken youtube embed videos on your website.
- * Version:           0.1.0
+ * Version:           0.1.1
  * Author:            SeoCherry.Ru
  * Author URI:        http://seocherry.ru/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 0.1.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'YT_LINK_FIXER_VERSION', '0.1.0' );
+define( 'YT_LINK_FIXER_VERSION', '0.1.1' );
 
 define( 'YT_LINK_FIXER_CRON_HOOK_CHECK', 'yt_link_fixer_cron_hook_check');
 define( 'YT_LINK_FIXER_CRON_HOOK_REPLACE', 'yt_link_fixer_cron_hook_replace');

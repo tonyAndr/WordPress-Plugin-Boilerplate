@@ -1,0 +1,9 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+#wpadminbar #wp-admin-bar-ytlf .ab-icon:before {
+    content: "\f236";
+    top: 3px;
+}

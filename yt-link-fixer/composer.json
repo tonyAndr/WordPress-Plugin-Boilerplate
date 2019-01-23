@@ -1,0 +1,6 @@
+{
+    "require": {
+        "antalaron/mb-similar-text": "^1.0",
+        "yahnis-elsts/plugin-update-checker": "^4.5"
+    }
+}

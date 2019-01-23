@@ -1,0 +1,134 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.ytlf-hide {
+    display: none !important;
+}
+
+#wpadminbar #wp-admin-bar-ytlf .ab-icon:before {
+    content: "\f236";
+    top: 3px;
+}
+
+.ytlf-replace-tab-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    margin-top: 1em;
+    align-content: flex-start;
+}
+.ytlf-replace-tab-container .links-table {
+    flex-grow:1;
+    flex-basis: 0;
+}
+.ytlf-replace-tab-container .links-table table {
+    border-collapse: collapse;
+    width:100%;
+}
+
+.ytlf-replace-tab-container .links-table thead tr {
+    border:none;
+    padding: 0;
+}
+.ytlf-replace-tab-container .links-table tr:nth-child(odd){
+    border-top:1px solid #ccc;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+}
+.ytlf-replace-tab-container .links-table tr:nth-child(even){
+    border-bottom:1px solid #ccc;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+}
+.ytlf-replace-tab-container .links-table th {
+    font-weight: bold;
+}
+.ytlf-replace-tab-container .links-table th,
+.ytlf-replace-tab-container .links-table td{
+    padding: 5px;
+}
+
+.ytlf-replace-tab-container .pro-options {
+    flex-grow:0;
+    flex-basis: 0;
+}
+.ytlf-replace-tab-container .links-table .info-text {
+    border-left: 3px solid lightblue;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.ytlf-replace-tab-container .suggestions-block {
+}
+.ytlf-replace-tab-container .suggestions-block .suggestion-item {
+    margin: 10px;
+    padding: 5px;
+    display:flex;
+    flex-flow: row;
+}
+
+.ytlf-replace-tab-container .suggestions-block .suggestion-item .media-container {
+    width:200px;
+    margin-right: 10px;
+    position: relative;
+}
+.ytlf-replace-tab-container .suggestions-block .suggestion-item .media-container .play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: xx-large;
+    color: red;
+    text-shadow: 1px 1px 5px black;
+    transform: translate(-50%, -50%);
+}
+.ytlf-replace-tab-container .suggestions-block .suggestion-item .media-container .play-overlay:hover {
+    color: white;
+    text-shadow: 3px 3px 5px black;
+}
+
+.ytlf-replace-tab-container .suggestions-block .suggestion-item:hover {
+    background:lightcoral;
+    cursor: pointer;
+}
+
+.ytlf-replace-tab-container .suggestions-block .suggestion-item img {
+    max-width:100%;
+}
+
+.ytlf-replace-tab-container .suggestions-block .suggestion-item iframe {
+    min-width:100%;
+    max-height: 150px;
+}
+
+.ytlf-options-tab-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    margin-top: 1em;
+    align-content: flex-start;
+}
+
+.ytlf-options-tab-container .left,
+.ytlf-options-tab-container .right {
+    flex-basis: 0;
+}
+
+
+.ytlf-options-tab-container .left {
+    flex-grow: 2;
+}
+
+
+.ytlf-options-tab-container .right {
+    flex-grow: 1;
+    margin-left: 1em;
+}
+
+.ytlf-options-tab-container label ,
+.ytlf-replace-tab-container label {
+    font-weight: bold;
+}

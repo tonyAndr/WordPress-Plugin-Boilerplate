@@ -56,9 +56,19 @@ class Yt_Link_Fixer_Logging {
      * @param $msg      - What is going on
      */
     public function write($msg, $process = "GENERAL", $level = "OK") {
-        $line = $this->get_curr_time() . ' ['.$process.'] ['.$level.']: '.$msg;
+        $line = $this->get_curr_time() . ' ['.$process.'] ['.$level.']: '.$msg.PHP_EOL;
         $file = file_put_contents($this->filename, $line.PHP_EOL , FILE_APPEND | LOCK_EX);
+//        $this->file_force_contents($this->filename, $line);
         return;
+    }
+
+    private function file_force_contents($dir, $contents){
+        $parts = explode('/', $dir);
+        $file = array_pop($parts);
+        $dir = '';
+        foreach($parts as $part)
+            if(!is_dir($dir .= "/$part")) mkdir($dir);
+        file_put_contents("$dir/$file", $contents, FILE_APPEND | LOCK_EX);
     }
 
     public function clear_log() {

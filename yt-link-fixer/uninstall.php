@@ -29,16 +29,16 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+// Drop db table
+function drop_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix."yt_broken_links";
+    $wpdb->query("DROP TABLE IF EXISTS $table_name");
+}
+drop_table();
 
 // Removing options
 delete_option("yt-link-fixer-general");
 delete_option("yt-link-fixer-settings");
 delete_option("yt-link-fixer-cache");
 
-// Drop db table
-function drop_table() {
-    global $wpdb;
-    $table_name = $wpdb->prefix."yt_broken_links";
-    $wpdb->query("DROP $table_name");
-}
-drop_table();

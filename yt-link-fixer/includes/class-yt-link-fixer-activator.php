@@ -36,21 +36,31 @@ class Yt_Link_Fixer_Activator {
         if (!isset($options["posts_num"])) $options["posts_num"] = 50; # fetch this num of posts each cron call
         update_option('yt-link-fixer-general', $options);
 
+        $logging = new Yt_Link_Fixer_Logging();
+        $logging->write("Plugin activated");
+
         # schedule cron task
         if ( ! wp_next_scheduled( YT_LINK_FIXER_CRON_HOOK_CHECK ) ) {
             wp_schedule_event( time() + 30, 'twicedaily', YT_LINK_FIXER_CRON_HOOK_CHECK );
+
+            $logging->write("Enabled cron-search for broken links", "CRON", "OK");
         }
 
         $options = get_option('yt-link-fixer-settings');
         if (isset($options["auto_replace"]) && ($options["auto_replace"] === 1)) {
+
             if ( ! wp_next_scheduled( YT_LINK_FIXER_CRON_HOOK_REPLACE ) ) {
                 wp_schedule_event( time() + 60, 'twicedaily', YT_LINK_FIXER_CRON_HOOK_REPLACE );
+                $logging->write("Enabled cron-replace for broken links", "CRON", "OK");
             }
         }
         if (!isset($options["email_notify"]) || ($options["email_notify"] === 1)) {
+            $options["email_notify"] = 1;
+            update_option("yt-link-fixer-settings", $options);
             if ( ! wp_next_scheduled( YT_LINK_FIXER_CRON_HOOK_MAILER ) ) {
 //                wp_schedule_event( time(), 'hourly', YT_LINK_FIXER_CRON_HOOK_MAILER );
-            wp_schedule_event( time() + 604800, 'ytlf_once_per_week', YT_LINK_FIXER_CRON_HOOK_MAILER );
+                wp_schedule_event( time() + 604800, 'ytlf_once_per_week', YT_LINK_FIXER_CRON_HOOK_MAILER );
+                $logging->write("Enabled email-notifications for broken links", "EMAIL", "OK");
             }
         }
 	}
